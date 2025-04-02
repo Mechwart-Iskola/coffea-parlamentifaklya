@@ -1,16 +1,10 @@
 import { useEffect, useState } from 'react'
 import './popular.css'
-
-type Popular = {
-  name: string,
-  description: string,
-  price: string,
-  image: string
-}
+import PopularCard, { PopularCoffee } from '../popularCard/PopularCard'
 
 const Popular = () => {
   {/*Fetcheld be a popular.json-ból az adatokat és tárold le egy állapotváltozóban*/}
-  const [populars, setPopulars] = useState<Popular[]>([]);
+  const [populars, setPopulars] = useState<PopularCoffee[]>([]);
   const [error, setError] = useState<string | null>(null);
   useEffect(() => {
     const fetchData = async () => {
@@ -34,15 +28,14 @@ const Popular = () => {
   {/*Hozz létre egy popularcard komponenst és a lementett adatokat ezen keresztül jelenítsd meg*/}
   return (
     <section className='popular'>
-      <h1 className='section__title'>THE MOST REQUESTED</h1>
-        {populars.map(coffe => (
-          <div className='popular__coffes'>
-            <img src={coffe.image} alt={coffe.description} />
-            <h2>{coffe.name}</h2>
-            <span>{coffe.price}</span>
-            <i className='' />
-          </div>
-        ))}
+      <h1 className='section__title'>POPULAR COFFEES</h1>
+      <div className='popular__coffes'>
+        {
+          populars.map(coffe => (
+            <PopularCard {...coffe}/>
+          ))
+        }
+      </div>
     </section>
   )
 }
