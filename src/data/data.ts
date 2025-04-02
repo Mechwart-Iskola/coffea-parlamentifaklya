@@ -1,5 +1,3 @@
-
-
 export const homeImages = [
     { src: "/img/home-splash.png", className: "home__splash", alt: "Coffee splash" },
     { src: "/img/bean-img.png", className: "home__bean-2", alt: "Coffee beans" },
