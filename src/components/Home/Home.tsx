@@ -10,12 +10,12 @@ const Home = () => {
 
   {/*A gomb mutasson az about részre */}
   return (
-    <section className='home'>
+    <section id='home' className='home'>
       <h1 className='home__title'>COLD COFFEE</h1>
       <div className='home__images'>
         <div className='home__shape' />
-        {homeImages.map(image => (
-          <img src={image.src} alt={image.alt} className={image.className} />
+        {homeImages.map((image, idx) => (
+          <img key={idx} src={image.src} alt={image.alt} className={image.className} />
         ))}
       </div>
       <img src="/img/home-sticker.svg" className='home__sticker' />

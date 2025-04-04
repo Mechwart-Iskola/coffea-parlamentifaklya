@@ -36,7 +36,7 @@ const Header: React.FC = () => {
                 <div className={showMenu ? "nav__menu show-menu" : "nav__menu"}>
                     <ul className="nav__list">
                         {["HOME", "POPULAR", "ABOUT US", "PRODUCTS", "CONTACT"].map(item => (
-                            <li><a href={`#${item.toLowerCase().replace(" ", "")}`} className="nav__link">{item}</a></li>
+                            <li key={item}><a href={`#${item.toLowerCase().replace(" ", "")}`} className="nav__link">{item}</a></li>
                         ))}
                     </ul>
                     <div className="nav__close">
